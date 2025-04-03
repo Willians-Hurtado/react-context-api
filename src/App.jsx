@@ -1,6 +1,6 @@
 import PostsPage from "./components/PostsPage";
 import PostsList from "./components/PostsList";
-
+import PostContext from "./context/PostContext";
 
 const posts = [
   { id: 1, title: "The Benefits of Meditation", content: "Meditating daily helps reduce stress and improve focus." },
@@ -15,10 +15,12 @@ function App() {
 
   return (
     <>
+      <PostContext.Provider value={{ posts }}>
+        <PostsPage />
 
-      <PostsPage />
+        <PostsList />
 
-      <PostsList posts={posts} />
+      </PostContext.Provider>
     </>
   )
 }
